@@ -10,13 +10,14 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.church.clearance</groupId>
-	<artifactId>ClearanceSpringBoot</artifactId>
+	<artifactId>clearance</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ClearanceSpringBoot</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<docker.image.prefix>be</docker.image.prefix>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -37,9 +38,9 @@
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>			
+			<artifactId>jaxb-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -53,7 +54,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.6</version>
@@ -65,8 +66,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>						
+						<name>kirellos/ms1-${project.artifactId}:${project.version}</name>
+					</image>
+				</configuration>
 			</plugin>
+
 		</plugins>
+		<finalName>docker-spring-boot</finalName>
 	</build>
 
 </project>
