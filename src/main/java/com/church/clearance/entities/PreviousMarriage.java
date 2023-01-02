@@ -24,7 +24,7 @@ public class PreviousMarriage implements Serializable {
 	
 	@Id
 	@Column(name="mar_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int marId;
 	
 	@Column(name="kind_of_marriage")

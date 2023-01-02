@@ -21,7 +21,7 @@ public class Child implements Serializable {
 	
 	@Id
 	@Column(name="child_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int childId;
 	
 	@Column(name="child_name")

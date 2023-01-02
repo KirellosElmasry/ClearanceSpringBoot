@@ -67,7 +67,7 @@ public class ClearanceController {
 			try {
 				helper.createFolderIfNotExists(UPLOADED_FOLDER);
 			} catch (SecurityException se) {
-				
+				se.printStackTrace();
 				result.getRes().put("code", 4000);
 				result.getRes().put("msg","Can not create destination folder on server");
 				return result.getRes();
@@ -76,6 +76,7 @@ public class ClearanceController {
 			try {
 				helper.saveToFile(fileDetail.getInputStream(), uploadedFileLocation);
 			} catch (IOException e) {
+				e.printStackTrace();
 				result.getRes().put("code", 4000);
 				result.getRes().put("msg","Can not save file");
 				return result.getRes();

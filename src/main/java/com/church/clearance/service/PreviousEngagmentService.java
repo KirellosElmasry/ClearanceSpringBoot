@@ -112,7 +112,7 @@ public ResultReturn addPreviousEngagment (PreviousEngagmentRequst previousEngagm
 			}
 			// ////////////user////////////////////
 			if (previousEngagmentRequst.getUserId() == null
-					|| previousEngagmentRequst.getUserId().equals("")) {
+					|| previousEngagmentRequst.getUserId().equals(0)) {
 				r.put("6", "user can not be null");
 			} else {
 				Users user = userDao.findById(previousEngagmentRequst
@@ -143,7 +143,5 @@ public ResultReturn addPreviousEngagment (PreviousEngagmentRequst previousEngagm
 			}
 		}
 		return r;
-	}
-    
-
+	} 
 }

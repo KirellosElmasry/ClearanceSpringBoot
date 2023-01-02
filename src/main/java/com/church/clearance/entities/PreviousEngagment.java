@@ -24,7 +24,7 @@ public class PreviousEngagment implements Serializable {
 	
 	@Id
 	@Column(name="eng_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int engId;
 	
 	@Temporal(TemporalType.TIMESTAMP)

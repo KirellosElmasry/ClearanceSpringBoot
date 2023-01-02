@@ -2,6 +2,8 @@ package com.church.clearance.dao;
 
 
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -15,9 +17,10 @@ import com.church.clearance.entities.Users;
 @Repository
 public interface UsersDao extends CrudRepository<Users, Integer>,
 PagingAndSortingRepository<Users, Integer>{
+
+	public List<Users> findAll();	
 	
 	@Query("from Users  u where u.userName=:userName and u.password=:password ")
 	public  Users findUserByUserNameAndPass (@Param("userName")String userName,@Param("password")String password);
 
-//Iterable<EmailSession>
 }

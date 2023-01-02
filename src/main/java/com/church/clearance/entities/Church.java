@@ -23,7 +23,7 @@ public class Church implements Serializable {
 	
 	@Id
 	@Column(name="church_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int churchId;
 	
 	@Column(name="church_name_en")

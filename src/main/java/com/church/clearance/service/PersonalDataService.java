@@ -86,7 +86,7 @@ public class PersonalDataService {
 		
 		if (!person.isPresent()) {
 			
-			person.of( new PersonalData());
+			person = Optional.of( new PersonalData());
 			person.get().setBaptism(personalDataRequest.getBaptism());
 			person.get().setBaptismPlace(personalDataRequest.getBaptismPlace());
 			person.get().setBirthDate(personalDataRequest.getBirthDate());

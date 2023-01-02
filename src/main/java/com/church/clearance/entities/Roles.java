@@ -23,7 +23,7 @@ public class Roles implements Serializable {
 	
 	@Id
 	@Column(name="rol_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int rolId;
 	
 	@Column(name="rol_name")
