@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ClearanceForm" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="29d63206-2ebc-428c-85e6-1961f4b4ae7d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="693"/>
+	<subDataset name="New Dataset 1" uuid="a24efbc1-bcee-456c-9513-7f0a13e5ab6e"/>
+	<parameter name="title" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="mariagePlace" class="java.lang.String"/>
+	<parameter name="kindOfMarriage" class="java.lang.String"/>
+	<parameter name="marriageDate" class="java.lang.String"/>
+	<parameter name="childsNumber" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="fromChurch" class="java.lang.String"/>
+	<field name="personalData" class="java.lang.Object"/>
+	<field name="address" class="java.lang.String"/>
+	<field name="job" class="java.lang.String"/>
+	<field name="militaryService" class="java.lang.String"/>
+	<field name="jobAddress" class="java.lang.String"/>
+	<field name="fatherOfConfession" class="java.lang.String"/>
+	<field name="recognitionRegularityRate" class="java.lang.String"/>
+	<field name="is_previousTravelBoard" class="java.lang.String"/>
+	<field name="isPreviousEngagement" class="java.lang.String"/>
+	<field name="isPreviousMarriage" class="java.lang.String"/>
+	<field name="socialStatus" class="java.lang.String"/>
+	<field name="churchName" class="java.lang.String">
+		<fieldDescription><![CDATA[church.churchNameAr]]></fieldDescription>
+	</field>
+	<field name="fullName" class="java.lang.String">
+		<fieldDescription><![CDATA[personalData.name]]></fieldDescription>
+	</field>
+	<field name="birthDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[personalData.birthDate]]></fieldDescription>
+	</field>
+	<field name="birthLocation" class="java.lang.String">
+		<fieldDescription><![CDATA[personalData.birthLocation]]></fieldDescription>
+	</field>
+	<field name="baptismLocation" class="java.lang.String">
+		<fieldDescription><![CDATA[personalData.baptismPlace]]></fieldDescription>
+	</field>
+	<field name="baptismDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[personalData.baptism]]></fieldDescription>
+	</field>
+	<field name="emirateId" class="java.lang.String">
+		<fieldDescription><![CDATA[personalData.emirateId]]></fieldDescription>
+	</field>
+	<field name="education" class="java.lang.String">
+		<fieldDescription><![CDATA[personalData.education]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="300" y="20" width="242" height="33" uuid="87a4d463-55f1-46fd-b286-de47b1e2b2a1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[شهاده خلو الموانع]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="636" splitType="Stretch">
+			<staticText>
+				<reportElement x="435" y="4" width="93" height="19" uuid="d5e492df-9535-47e4-989f-884167094073"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[الكنيسه:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="304" y="78" width="124" height="19" uuid="883290e8-1166-497d-b1d5-b1498c7b1b69"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{emirateId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="115" width="124" height="19" uuid="2b584aeb-6878-43bf-9617-b32a3bc6eae2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="97" width="124" height="19" uuid="c6734476-50d5-44d6-b48b-3fbf2a201072"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{education}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="286" width="124" height="19" uuid="e360da50-ff86-4171-9a15-8f001ce144e1"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{mariagePlace}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="60" width="93" height="19" uuid="b1be602c-9eef-4a11-b8b6-e2818fa9f978"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[تاريخ العماد :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="23" width="93" height="19" uuid="a9c3dcd0-5e1f-4ed3-9e15-6771e5d22e07"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[الاسم الثلاثي:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="42" width="93" height="19" uuid="020298fd-200e-44c3-9610-9e64bd4b6699"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[تاريخ الميلاد  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="157" y="42" width="93" height="19" uuid="8b4191d3-1ba7-4291-92ab-6490377e5074"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{birthLocation}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="115" width="93" height="19" uuid="e67e4d8a-0673-4b55-b84a-1aca80613fe0"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[العنوان:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="97" width="93" height="19" uuid="be36d4d8-225d-4aec-9869-f078fba681de"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[المؤهل:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="304" y="5" width="124" height="19" uuid="81459327-b65d-4c76-9bb2-00341bf15ee2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{churchName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="60" width="124" height="19" uuid="78879ac3-20e3-4f7a-aa96-136c720a1dbf"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{baptismDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="41" width="124" height="19" uuid="594789b5-e3e8-48ff-bf6b-d6e29a0d1679"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{birthDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="23" width="124" height="19" uuid="4f1c380f-c1ba-4c71-8f8a-7f1743bd69f6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fullName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="78" width="93" height="19" uuid="ec14919b-559b-4b02-97c1-f401cb178dc2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[البطاقه:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="135" width="93" height="19" uuid="a0c9f1a8-4803-410d-a869-77a0c69348dc"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[العمل و عنوانه:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="304" y="154" width="124" height="19" uuid="65a81677-7013-4346-872a-3bf2d13182de"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{militaryService}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="173" width="93" height="19" uuid="ead3a482-d419-4594-8d83-40e7249d3f03"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[الكنيسه التابغ لها:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="304" y="230" width="124" height="19" uuid="07033afa-2b32-4c06-bc13-4c4eb99b5345"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{is_previousTravelBoard}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="268" width="124" height="19" uuid="a0050232-3a1f-4903-942f-1f6724ad519f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{isPreviousMarriage}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="173" width="124" height="19" uuid="c0f17e60-93d4-4c4d-9b9c-413b064a533a"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fromChurch}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="193" width="125" height="19" uuid="d5d06de3-b18b-4540-a8cc-eb4506672f1b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fatherOfConfession}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="249" width="124" height="19" uuid="0bc7f153-63eb-41d7-9750-c6838a800574"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{isPreviousEngagement}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="154" width="93" height="19" uuid="e5da3a2a-152e-4ec6-9d60-390f05d96cad"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[موقفه من التجنيد:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="286" width="92" height="19" uuid="25c46eaf-95a0-4574-939d-50724a85fb96"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[مكان الزواج:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="193" width="93" height="19" uuid="56c4367a-39d0-416b-baef-35eaa36f387f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[اب الاعتراف :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="249" width="93" height="19" uuid="776afd52-be9f-4703-9c96-66328d16d90d"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[خطوبه سابقه:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="304" y="135" width="124" height="19" uuid="d2b69992-5ee5-42e8-ba5a-4c071c6c37e6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{job}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="268" width="93" height="19" uuid="7d6fe741-a320-4a4f-b6c4-e61470410aca"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[زواج سابق:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="230" width="93" height="19" uuid="fd87c31b-cafe-4cc1-9751-3207d07ee49f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[السفر الي الخارج: (البلد) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="211" width="93" height="19" uuid="14ed4748-8a44-463f-99a6-64a0afd99908"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[معدل الانتظام في الاغتراف:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="303" y="211" width="125" height="19" uuid="b3667584-f02c-4464-bf05-c2a6fb5b4577"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recognitionRegularityRate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="257" y="230" width="37" height="19" uuid="0701326f-e490-4816-8911-74065120a7a9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[التاريخ:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="230" width="100" height="19" uuid="8ebc9a47-d6ab-42d8-8c9b-b889d123dab8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fullName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="366" width="93" height="21" uuid="bde93535-e6d7-4d5e-87fc-c23915531330"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[عدد الاولاد:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="304" y="324" width="124" height="21" uuid="8c68a014-4866-40da-8e47-f33e1a228f4f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{socialStatus}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="344" width="93" height="21" uuid="9c2e2925-3eb4-4519-8f42-d47079b56bfb"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[تاريخ الزواج :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="324" width="93" height="21" uuid="dddc21d2-defa-40d7-b7eb-9c5e17d0483c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[الحاله:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="304" y="305" width="124" height="19" uuid="de61d9af-bf27-46d5-a913-68991f32d5eb"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kindOfMarriage}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="344" width="124" height="21" uuid="259fb454-2403-4fb5-a53e-088fd191eedb"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{marriageDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="366" width="124" height="21" uuid="64b64ca1-a32a-43f8-87fc-b9d557d45281"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{childsNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="435" y="305" width="93" height="19" uuid="7d9b60d5-2dc3-466c-92a7-eb0939e8ab85"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[نوع الزواج :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="424" width="103" height="28" uuid="61bc3b22-bc36-47ed-93f5-0f8ce820d270"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[اقر بصحه هذه البيانات]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="452" width="103" height="28" uuid="e3a717ca-1eed-413e-abd6-42898f7cb97b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[توقيع صاحب الشهاده]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="480" width="103" height="26" uuid="e2e79f36-89ea-43f2-b210-32b770530456"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[التاريخ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="428" width="140" height="27" uuid="4ed294fe-6edd-428c-9ce3-3096a490528f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[اشهد بصحه هذه البيانات]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="455" width="103" height="23" uuid="826c46a8-6ff8-40fd-8872-cd353ca0ed6f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[توقيع الكاهن:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="504" width="103" height="28" uuid="fc6740f6-032c-4acb-a0d4-bc811bd4351e"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[الكنيسه:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="478" width="103" height="25" uuid="84a17cf4-7c11-4f57-b5ea-5499d74b872c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[الاب الكاهن:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="479" y="508" width="49" height="28" uuid="a924b367-c311-4a71-9d93-ecd81fefce48"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ملحوظه:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="508" width="281" height="25" uuid="b1db1be3-8d14-4b29-a788-fd646cb8fff3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[صلاحيه هذه الشهاده شهر واحد من تاريخ الاصدار]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="535" width="280" height="25" uuid="2a4d7241-597a-4464-81f7-0f1e01b362c6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[تملا جميع البيانات ولا تضاف اليها بيانات اخري.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="572" width="458" height="45" uuid="158830ff-8117-4d0e-b1a7-2bfcf11a03e5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[يجب تصديق هذه الشهاده من البطريركيه و اذا كانت للقصر لا تسلم الا لولي الامر او الاب الكاهن]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="157" y="61" width="93" height="19" uuid="107387ce-33c4-47f6-b6df-e1caf3a0829b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{baptismLocation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="135" width="93" height="19" uuid="65fa9032-3909-412d-a208-9c833d294219"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jobAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="257" y="135" width="37" height="19" uuid="b8e82ed5-124b-495e-9c40-be49f1847309"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[التاريخ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="42" width="37" height="19" uuid="1e1eff9f-630f-4054-b606-296ea8063751"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[مكانه:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="60" width="37" height="19" uuid="ce9a979a-3666-4bde-a64b-9d9362e5249f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[مكانه:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="13" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="10" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="8" splitType="Stretch"/>
+	</summary>
+</jasperReport>
