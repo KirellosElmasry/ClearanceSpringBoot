@@ -3,10 +3,6 @@ package com.church.clearance.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 public class PersonalDataRequest implements Serializable {
 
 	

@@ -30,84 +30,82 @@ import com.church.clearance.service.PersonalDataService;
 
 @RestController
 public class PersonalDataController {
-	
+
 	@Autowired
-	PersonalDataService  personalDataService;
-	
+	PersonalDataService personalDataService;
+
 	@Autowired
 	HelperMethods helper;
-	
+
 	@CrossOrigin()
-	@RequestMapping(value="/api/v1/getSearchByEid",method=RequestMethod.POST
-			,consumes = MediaType.APPLICATION_JSON_VALUE
-			,produces = MediaType.APPLICATION_JSON_VALUE )
+	@RequestMapping(value = "/api/v1/getSearchByEid", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public Map<?,?> getSearchByEid ( @RequestParam String eid){
-		
+	public Map<?, ?> getSearchByEid(@RequestParam String eid) {
+
 		return personalDataService.getPeronalData(eid).getRes();
 	}
-	
-	
+
 	@CrossOrigin
-	@RequestMapping(value="/api/v1/addPersonalData",method=RequestMethod.POST
-	
-			,consumes = {MediaType.APPLICATION_JSON_VALUE,MediaType.MULTIPART_FORM_DATA_VALUE}
-			,produces = MediaType.APPLICATION_JSON_VALUE )
- @ResponseBody
-	public Map<?,?> uploadFile(	@RequestParam("file") MultipartFile  pic ,
-			                    @RequestParam (value = "emirateId") String emirateId,
-			                    @RequestParam (value = "name") String name,
-			                    @RequestParam (value = "birthDate") String birthDate,
-			                    @RequestParam (value = "birthLocation") String birthLocation,
-			                    @RequestParam (value = "baptismPlace") String baptismPlace,
-			                    @RequestParam (value = "baptism") String baptism,
-			                    @RequestParam (value = "education") String education,
-			                    @RequestParam (value = "educationDate") String educationDate) {
-		ResultReturn result=new ResultReturn();
-		
-		if(helper.validateEidWithBirthdate(emirateId, birthDate)== null){
-		String root = System.getProperty("user.dir");
-		 String filepath = File.separator +"src"+ File.separator +"main"+ File.separator +"resources"+ File.separator ;
-		 String UPLOADED_FOLDER = root+filepath+"PersonalPhoto";
-		 
-		 try {
+	@RequestMapping(value = "/api/v1/addPersonalData", method = RequestMethod.POST
+
+			, consumes = { MediaType.APPLICATION_JSON_VALUE,
+					MediaType.MULTIPART_FORM_DATA_VALUE }, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Map<?, ?> uploadFile(@RequestParam("file") MultipartFile pic,
+			@RequestParam(value = "emirateId") String emirateId, @RequestParam(value = "name") String name,
+			@RequestParam(value = "birthDate") String birthDate,
+			@RequestParam(value = "birthLocation") String birthLocation,
+			@RequestParam(value = "baptismPlace" , required = false) String baptismPlace, @RequestParam(value = "baptism", required = false) String baptism,
+			@RequestParam(value = "education") String education,
+			@RequestParam(value = "educationDate" , required = false) String educationDate) {
+		ResultReturn result = new ResultReturn();
+
+		if (helper.validateEidWithBirthdate(emirateId, birthDate) == null) {
+			String root = System.getProperty("user.dir");
+			String filepath = File.separator + "src" + File.separator + "main" + File.separator + "resources"
+					+ File.separator;
+			String UPLOADED_FOLDER = root + filepath + "PersonalPhoto";
+
+			try {
 				helper.createFolderIfNotExists(UPLOADED_FOLDER);
 			} catch (SecurityException se) {
-				
+
 				result.getRes().put("code", 4000);
-				result.getRes().put("msg","Can not create destination folder on server");
+				result.getRes().put("msg", "Can not create destination folder on server");
 				return result.getRes();
 			}
-		 
-		 String uploadedFileLocation = UPLOADED_FOLDER + File.separator + emirateId+pic.getOriginalFilename().substring(pic.getOriginalFilename().indexOf("."));
+
+			String uploadedFileLocation = UPLOADED_FOLDER + File.separator + emirateId
+					+ pic.getOriginalFilename().substring(pic.getOriginalFilename().indexOf("."));
 			try {
 				helper.saveToFile(pic.getInputStream(), uploadedFileLocation);
 			} catch (IOException e) {
 				result.getRes().put("code", 4000);
-				result.getRes().put("msg","Can not save file");
+				result.getRes().put("msg", "Can not save file");
 				return result.getRes();
-		
+
 			}
 			PersonalDataRequest personalDataRequest = new PersonalDataRequest();
 			personalDataRequest.setEmirateId(emirateId);
-			personalDataRequest.setBaptism(helper.getDate(baptism));
+			if(baptism != null)
+				personalDataRequest.setBaptism(helper.getDate(baptism));
 			personalDataRequest.setBirthDate(helper.getDate(birthDate));
-			personalDataRequest.setBaptismPlace(baptismPlace);
+			if(baptismPlace != null)
+				personalDataRequest.setBaptismPlace(baptismPlace);
 			personalDataRequest.setBirthLocation(birthLocation);
 			personalDataRequest.setEducation(education);
-			personalDataRequest.setEducationDate(helper.getDate(educationDate));
-			personalDataRequest.setPic(emirateId+pic.getOriginalFilename().substring(pic.getOriginalFilename().indexOf(".")));
+			if(educationDate!= null)
+				personalDataRequest.setEducationDate(helper.getDate(educationDate));
+			personalDataRequest
+					.setPic(emirateId + pic.getOriginalFilename().substring(pic.getOriginalFilename().indexOf(".")));
 			personalDataRequest.setName(name);
-			
-			
-			
+
 			return personalDataService.addPeronalData(personalDataRequest).getRes();
-		}else{
-			
+		} else {
+
 			return helper.validateEidWithBirthdate(emirateId, birthDate).getRes();
 		}
-			
-		
+
 	}
 
 }

@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ClearanceForm" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="29d63206-2ebc-428c-85e6-1961f4b4ae7d">
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="693"/>
+	<property name="ireport.y" value="305"/>
 	<subDataset name="New Dataset 1" uuid="a24efbc1-bcee-456c-9513-7f0a13e5ab6e"/>
 	<parameter name="title" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="mariagePlace" class="java.lang.String"/>
 	<parameter name="kindOfMarriage" class="java.lang.String"/>
 	<parameter name="marriageDate" class="java.lang.String"/>
 	<parameter name="childsNumber" class="java.lang.Integer"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\projects\\ClearanceSpringBoot\\src\\main\\resources\\reports\\"]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -24,6 +27,7 @@
 	<field name="isPreviousEngagement" class="java.lang.String"/>
 	<field name="isPreviousMarriage" class="java.lang.String"/>
 	<field name="socialStatus" class="java.lang.String"/>
+	<field name="childs" class="java.util.List"/>
 	<field name="churchName" class="java.lang.String">
 		<fieldDescription><![CDATA[church.churchNameAr]]></fieldDescription>
 	</field>
@@ -52,9 +56,9 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="58" splitType="Stretch">
+		<band height="37" splitType="Stretch">
 			<staticText>
-				<reportElement x="300" y="20" width="242" height="33" uuid="87a4d463-55f1-46fd-b286-de47b1e2b2a1"/>
+				<reportElement x="303" y="0" width="242" height="33" uuid="87a4d463-55f1-46fd-b286-de47b1e2b2a1"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="24" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
@@ -62,14 +66,8 @@
 			</staticText>
 		</band>
 	</title>
-	<pageHeader>
-		<band height="6" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="9" splitType="Stretch"/>
-	</columnHeader>
 	<detail>
-		<band height="636" splitType="Stretch">
+		<band height="710" splitType="Stretch">
 			<staticText>
 				<reportElement x="435" y="4" width="93" height="19" uuid="d5e492df-9535-47e4-989f-884167094073"/>
 				<textElement textAlignment="Right">
@@ -372,77 +370,77 @@
 				<text><![CDATA[نوع الزواج :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="425" y="424" width="103" height="28" uuid="61bc3b22-bc36-47ed-93f5-0f8ce820d270"/>
+				<reportElement x="430" y="523" width="103" height="28" uuid="61bc3b22-bc36-47ed-93f5-0f8ce820d270"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[اقر بصحه هذه البيانات]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="425" y="452" width="103" height="28" uuid="e3a717ca-1eed-413e-abd6-42898f7cb97b"/>
+				<reportElement x="430" y="551" width="103" height="28" uuid="e3a717ca-1eed-413e-abd6-42898f7cb97b"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[توقيع صاحب الشهاده]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="425" y="480" width="103" height="26" uuid="e2e79f36-89ea-43f2-b210-32b770530456"/>
+				<reportElement x="430" y="579" width="103" height="26" uuid="e2e79f36-89ea-43f2-b210-32b770530456"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[التاريخ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="51" y="428" width="140" height="27" uuid="4ed294fe-6edd-428c-9ce3-3096a490528f"/>
+				<reportElement x="56" y="527" width="140" height="27" uuid="4ed294fe-6edd-428c-9ce3-3096a490528f"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[اشهد بصحه هذه البيانات]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="88" y="455" width="103" height="23" uuid="826c46a8-6ff8-40fd-8872-cd353ca0ed6f"/>
+				<reportElement x="93" y="554" width="103" height="23" uuid="826c46a8-6ff8-40fd-8872-cd353ca0ed6f"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[توقيع الكاهن:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="88" y="504" width="103" height="28" uuid="fc6740f6-032c-4acb-a0d4-bc811bd4351e"/>
+				<reportElement x="93" y="603" width="103" height="28" uuid="fc6740f6-032c-4acb-a0d4-bc811bd4351e"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[الكنيسه:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="88" y="478" width="103" height="25" uuid="84a17cf4-7c11-4f57-b5ea-5499d74b872c"/>
+				<reportElement x="93" y="577" width="103" height="25" uuid="84a17cf4-7c11-4f57-b5ea-5499d74b872c"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[الاب الكاهن:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="479" y="508" width="49" height="28" uuid="a924b367-c311-4a71-9d93-ecd81fefce48"/>
+				<reportElement x="496" y="642" width="49" height="28" uuid="a924b367-c311-4a71-9d93-ecd81fefce48"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[ملحوظه:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="194" y="508" width="281" height="25" uuid="b1db1be3-8d14-4b29-a788-fd646cb8fff3"/>
+				<reportElement x="199" y="607" width="281" height="25" uuid="b1db1be3-8d14-4b29-a788-fd646cb8fff3"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[صلاحيه هذه الشهاده شهر واحد من تاريخ الاصدار]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="194" y="535" width="280" height="25" uuid="2a4d7241-597a-4464-81f7-0f1e01b362c6"/>
+				<reportElement x="199" y="634" width="280" height="25" uuid="2a4d7241-597a-4464-81f7-0f1e01b362c6"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[تملا جميع البيانات ولا تضاف اليها بيانات اخري.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="21" y="572" width="458" height="45" uuid="158830ff-8117-4d0e-b1a7-2bfcf11a03e5"/>
+				<reportElement x="65" y="670" width="458" height="22" uuid="158830ff-8117-4d0e-b1a7-2bfcf11a03e5"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
@@ -483,15 +481,11 @@
 				</textElement>
 				<text><![CDATA[مكانه:]]></text>
 			</staticText>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="387" width="527" height="117" isRemoveLineWhenBlank="true" uuid="e57903c3-f6f3-4160-b40d-281fcf757a61"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{childs})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ChildsSubReport.jasper"]]></subreportExpression>
+			</subreport>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="13" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="10" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="8" splitType="Stretch"/>
-	</summary>
 </jasperReport>
