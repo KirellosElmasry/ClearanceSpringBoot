@@ -54,33 +54,23 @@ public class ManageReportsService {
 
 			JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(clearance);
 
-			String mariagePlace = "";
-			String kindOfMarriage= "";
-			String marriageDate= "";
-			Integer childsNumber= 0;
-			
+			String kindOfMarriage = "";
+			Integer childsNumber = 0;
+
 			if (!clearance.isEmpty() && clearance.get(0).getPreviousMarriages() != null
 					&& !clearance.get(0).getPreviousMarriages().isEmpty()) {
-				
-				if( clearance.get(0).getPreviousMarriages().get(0).getMarriagePlace() != null)
-					mariagePlace = clearance.get(0).getPreviousMarriages().get(0).getMarriagePlace();
-				
-				if( clearance.get(0).getPreviousMarriages().get(0).getKindOfMarriage()!= null)
+
+				if (clearance.get(0).getPreviousMarriages().get(0).getKindOfMarriage() != null)
 					kindOfMarriage = clearance.get(0).getPreviousMarriages().get(0).getKindOfMarriage();
-			
-				if( clearance.get(0).getPreviousMarriages().get(0).getMarriageDate()!= null)
-					marriageDate = clearance.get(0).getPreviousMarriages().get(0).getMarriageDate().toString();			
+
 			}
-			
-			if( clearance.get(0).getChilds()!= null)
+
+			if (clearance.get(0).getChilds() != null)
 				childsNumber = clearance.get(0).getChilds().size();
-			
 
 			Map<String, Object> parameters = new HashMap<>();
 			parameters.put("title", "Clearance Form");
-			parameters.put("mariagePlace", mariagePlace);
 			parameters.put("kindOfMarriage", kindOfMarriage);
-			parameters.put("marriageDate", marriageDate);
 			parameters.put("childsNumber", childsNumber);
 
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
