@@ -16,42 +16,42 @@
 			</rectangle>
 			<staticText>
 				<reportElement x="468" y="0" width="64" height="31" uuid="ea85c274-77cb-464c-a597-c844f7f1aa40"/>
-				<textElement textAlignment="Right" verticalAlignment="Top">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[تاريخ الزواج:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="279" y="1" width="63" height="31" uuid="f76e1340-bba5-4a0d-83c3-496e85739dc5"/>
-				<textElement textAlignment="Right" verticalAlignment="Top">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[مكان الزواج:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="127" y="0" width="39" height="31" uuid="06185d31-4c3d-43cf-bba0-53ce98430a05"/>
-				<textElement textAlignment="Right" verticalAlignment="Top">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[الكاهن:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="345" y="0" width="123" height="31" uuid="1e963734-d92d-4cba-97ad-9e3ed8e00047"/>
-				<textElement textAlignment="Right">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{marriageDate}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="166" y="1" width="113" height="31" uuid="1ac41e72-d072-489a-bc5a-dd499659c26d"/>
-				<textElement textAlignment="Right">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{marriagePlace}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="3" y="1" width="124" height="31" uuid="87afe888-3391-4dc8-ab43-9a5a9303c3af"/>
-				<textElement textAlignment="Right">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{priestFather}]]></textFieldExpression>
