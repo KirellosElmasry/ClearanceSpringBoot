@@ -72,7 +72,18 @@ public class ManageReportsService {
 			parameters.put("title", "Clearance Form");
 			parameters.put("kindOfMarriage", kindOfMarriage);
 			parameters.put("childsNumber", childsNumber);
-
+			
+			if(clearance.get(0).getMilitaryService().equals("0"))
+				clearance.get(0).setMilitaryService("Finished");
+			else if(clearance.get(0).getMilitaryService().equals("1"))
+				clearance.get(0).setMilitaryService("postponed");
+			else if(clearance.get(0).getMilitaryService().equals("2"))
+				clearance.get(0).setMilitaryService("Exemption");
+			else if(clearance.get(0).getMilitaryService().equals("3"))
+				clearance.get(0).setMilitaryService("Inappropriate");
+			else
+				clearance.get(0).setMilitaryService("");
+			
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
 			exportPDF(jasperPrint, response);
