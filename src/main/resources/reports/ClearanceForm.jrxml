@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ClearanceForm" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="29d63206-2ebc-428c-85e6-1961f4b4ae7d">
 	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="295"/>
-	<property name="ireport.y" value="1241"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="896"/>
 	<subDataset name="New Dataset 1" uuid="a24efbc1-bcee-456c-9513-7f0a13e5ab6e"/>
 	<parameter name="title" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="kindOfMarriage" class="java.lang.String"/>
@@ -28,7 +28,7 @@
 	<field name="previousMarriages" class="java.util.List"/>
 	<field name="previousEngagment" class="java.util.List"/>
 	<field name="childs" class="java.util.List"/>
-    <field name="refNo" class="java.lang.String"/>
+	<field name="refNo" class="java.lang.String"/>
 	<field name="churchName" class="java.lang.String">
 		<fieldDescription><![CDATA[church.churchNameAr]]></fieldDescription>
 	</field>
@@ -72,7 +72,7 @@
 			<staticText>
 				<reportElement x="222" y="89" width="22" height="26" uuid="048ebc7d-9225-4b81-bd2a-0cbe9d85dd9c"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[رقم:]]></text>
 			</staticText>
@@ -536,7 +536,7 @@
 				<text><![CDATA[الكنيسه:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="77" y="190" width="103" height="25" uuid="84a17cf4-7c11-4f57-b5ea-5499d74b872c"/>
+				<reportElement x="77" y="186" width="103" height="25" uuid="84a17cf4-7c11-4f57-b5ea-5499d74b872c"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="14" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
 				</textElement>
