@@ -1,24 +1,15 @@
-version: "3.8"
+version: '3'
 services:
-  server:
-    build: .
+  my-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-app
     ports:
-      - 8082:8082
-    depends_on:
-      - mariadb
+      - 8080:8080
     networks:
-      - backend
-  mariadb:
-    image: "mariadb:latest"
-    ports:
-      - 3307:3307
-    networks:
-      - backend
-    environment:
-      MARIADB_HOST: mariadb
-      MYSQL_DATABASE: church
-      MARIADB_USER: root
-      MARIADB_PASSWORD: P@ssw0rd
-      MARIADB_ROOT_PASSWORD: P@ssw0rd
+      - my-network
+
 networks:
-  backend:
+  my-network:
+    driver: bridge
