@@ -47,11 +47,14 @@ public class ManageReportsService {
 	private void prepareReport(List<Clearance> clearance, HttpServletResponse response) {
 		try {
 			InputStream employeeReportStream = getClass().getResourceAsStream("/reports/ClearanceForm.jrxml");
-
+			System.out.println("employeeReportStream "+employeeReportStream.available());
+			
 			JasperReport jasperReport = JasperCompileManager.compileReport(employeeReportStream);
-
+			System.out.println("jasperReport "+jasperReport.getName() + "  get current location: "+ System.getProperty("user.dir"));
+			
 			JRSaver.saveObject(jasperReport, "./src/main/resources/reports/ClearanceForm.jasper");
-
+			System.out.println("After saveObject ");
+			
 			JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(clearance);
 
 			String kindOfMarriage = "";
@@ -72,23 +75,28 @@ public class ManageReportsService {
 			parameters.put("title", "Clearance Form");
 			parameters.put("kindOfMarriage", kindOfMarriage);
 			parameters.put("childsNumber", childsNumber);
-			
-			if(clearance.get(0).getMilitaryService().equals("0"))
-				clearance.get(0).setMilitaryService("Finished");
-			else if(clearance.get(0).getMilitaryService().equals("1"))
-				clearance.get(0).setMilitaryService("postponed");
-			else if(clearance.get(0).getMilitaryService().equals("2"))
-				clearance.get(0).setMilitaryService("Exemption");
-			else if(clearance.get(0).getMilitaryService().equals("3"))
-				clearance.get(0).setMilitaryService("Inappropriate");
-			else
-				clearance.get(0).setMilitaryService("");
+
+			if (clearance.get(0).getMilitaryService() != null) {
+				if (clearance.get(0).getMilitaryService().equals("0"))
+					clearance.get(0).setMilitaryService("Finished");
+				else if (clearance.get(0).getMilitaryService().equals("1"))
+					clearance.get(0).setMilitaryService("postponed");
+				else if (clearance.get(0).getMilitaryService().equals("2"))
+					clearance.get(0).setMilitaryService("Exemption");
+				else if (clearance.get(0).getMilitaryService().equals("3"))
+					clearance.get(0).setMilitaryService("Inappropriate");
+				else
+					clearance.get(0).setMilitaryService("");
+			}
 			
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
 			exportPDF(jasperPrint, response);
-
+			System.out.println("after exporting pdf");
 		} catch (JRException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
